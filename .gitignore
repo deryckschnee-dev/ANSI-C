@@ -4,3 +4,6 @@ src/*.pdb
 bin/*.exe
 bin/*.ilk
 bin/*.pdb
+bin/run.exe
+bin/run.ilk
+bin/run.pdb
