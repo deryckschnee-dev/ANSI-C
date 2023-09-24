@@ -1,4 +1,4 @@
-#ANSI-C Tutorial
+# ANSI-C Tutorial
 
 This repository is me working through the turorial and exercises in the book "The C Programming Language, Second Edition" by Brian Kernighan and Dennis Ritchie. ISBN: 0-13-110362-8
 
