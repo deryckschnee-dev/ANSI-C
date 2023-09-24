@@ -1,3 +1,6 @@
 src/*.exe
 src/*.ilk
 src/*.pdb
+bin/*.exe
+bin/*.ilk
+bin/*.pdb

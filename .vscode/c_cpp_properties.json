@@ -11,8 +11,7 @@
                 "_UNICODE"
             ],
             "compilerPath": "S:\\development\\compilers\\LLVM\\bin\\clang.exe",
-            "cStandard": "c17",
-            "cppStandard": "c++17",
+            "cStandard": "c89",
             "intelliSenseMode": "windows-clang-x64"
         }
     ],

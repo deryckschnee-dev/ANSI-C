@@ -1,7 +1,35 @@
 #include <stdio.h>
 
+#define IN  1   /* inside a word */
+#define OUT 0   /* outside a word */
+
+/* count lines, words and characters in input */
+
 main()
 {
+    int character, numLines, numWords, numCharacters, state;
 
-    return 0;
+    state = OUT;
+    numLines = numWords = numCharacters = 0;
+
+    while ((character = getchar()) != EOF)
+    {
+        ++numCharacters;
+
+        if (character == '\n')
+        {
+            ++numLines;
+        }
+
+        if (character == ' ' || character == '\n' || character == '\t')
+        {
+            state = OUT;
+        }
+        else if (state == OUT)
+        {
+            state = IN;
+            ++numWords;
+        }
+    }
+    printf("%d %d %d\n", numLines, numWords, numCharacters);
 }
