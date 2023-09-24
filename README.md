@@ -7,7 +7,7 @@ I am using the ANSI-C (C89) standard with Clang compiler version 12.0.0 on Windo
 Clang command string to create an executable for a single sourcefile in \bin (run in /src):
     
 ```
-clang.exe -std=c89 -g _sourcefile.c_ -o ..\bin\run.exe</code>
+clang.exe -std=c89 -g _sourcefile.c_ -o ..\bin\run.exe
 ```
 
 -ds
