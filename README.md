@@ -5,8 +5,8 @@ This repository is me working through the turorial and exercises in the book "Th
 I am using the ANSI-C (C89) standard with Clang compiler version 12.0.0 on Windows 10 64-bit.
 
 Clang command string to create an executable for a single sourcefile in \bin (run in /src):
-    
-```
+
+```cmd
 clang.exe -std=c89 -g sourcefile.c -o ..\bin\run.exe
 ```
 

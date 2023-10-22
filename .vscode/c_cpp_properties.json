@@ -6,9 +6,7 @@
                 "${workspaceFolder}/**"
             ],
             "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
+                "_DEBUG"
             ],
             "compilerPath": "S:\\development\\compilers\\LLVM\\bin\\clang.exe",
             "cStandard": "c89",

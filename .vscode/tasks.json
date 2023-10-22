@@ -1,0 +1,25 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: clang.exe build active file",
+			"command": "S:\\development\\compilers\\LLVM\\bin\\clang.exe",
+			"args": [
+				"-std=c89",
+				"-g",
+				"${file}",
+				"-o",
+				"${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}\\bin"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "compiler: S:\\development\\compilers\\LLVM\\bin\\clang.exe"
+		}
+	]
+}
