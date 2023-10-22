@@ -28,6 +28,7 @@ int main()
     {
         if (insideWord == 0)    /* was outside word on last character */
         {
+            // FIXME: Find a way to exclude all characters except [A-Z,a-z]
             if (character == ' ' || character == '\t' || character == '\n' ||
                 character == '.' || character == ',' || character == '!' ||
                 character == '?' || character == '-')
