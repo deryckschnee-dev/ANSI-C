@@ -1,5 +1,9 @@
 /* Write a program that takes user input and outputs a 
-   histogram of lengths of words entered. */
+   histogram of lengths of words entered. 
+   
+   Deryck Schnee
+   Completed on 23-Oct-2023
+*/
 
 #include <stdio.h>
 #define ARRAY_SIZE 20
@@ -28,28 +32,30 @@ int main()
     {
         if (insideWord == 0)    /* was outside word on last character */
         {
-            // FIXME: Find a way to exclude all characters except [A-Z,a-z]
-            if (character == ' ' || character == '\t' || character == '\n' ||
-                character == '.' || character == ',' || character == '!' ||
-                character == '?' || character == '-')
-            {
-                insideWord = 0;
-            }
-            else
+            // words are composed of the characters [A-Z,a-z]
+            if ((character >= 65 && character <=90)
+                || (character >= 97 && character <= 122))
             {
                 insideWord = 1;
                 currentWordLength++;
             }
+            else
+            {
+                insideWord = 0;
+            }
         }
         else    /* was inside word on last character */
         {
-            if (character == ' ' || character == '\t' || character == '\n' ||
-                character == '.' || character == ',' || character == '!' ||
-                character == '?' || character == '-')
+            if ((character >= 65 && character <=90)
+                || (character >= 97 && character <= 122))
+            {
+                insideWord = 1;
+                currentWordLength++;
+            }
+            else
             {
                 insideWord = 0;
-
-                if (currentWordLength > ARRAY_SIZE)
+                if (currentWordLength > (ARRAY_SIZE - 1))
                 {
                     // EXCEPTION: Array size exceeded. Discard word length result.
                     exceptionWordTooLarge = 1;
@@ -61,19 +67,10 @@ int main()
                     currentWordLength = 0;
                 }
             }
-            else
-            {
-                insideWord = 1;
-                currentWordLength++;
-            }
         }
-        // putchar(character);
-
         character = getchar();
     }
-
     printf("\n-=- Word Histograph -=-\n\n");
-
     printf("Char\n");
     printf("Count   Occurences\n");
     printf("======= ===============\n");
@@ -99,7 +96,7 @@ int main()
 
     if (exceptionWordTooLarge == 1)
     {
-        printf("NOTE: One or more words with %d or more characters were entered. These word counts were discarded.\n\n", ARRAY_SIZE);
+        printf("NOTE: Counts of words larger than %d characters were discarded.\n\n", (ARRAY_SIZE - 1));
     }
 
     return 0;
