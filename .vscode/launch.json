@@ -9,7 +9,7 @@
         "stopAtEntry": false,
         "cwd": "${workspaceRoot}/bin",
         "environment": [],
-        "console": "integratedTerminal",
+        "console": "externalTerminal",
         "preLaunchTask": "C/C++: clang.exe build active file"
     }
     ]
