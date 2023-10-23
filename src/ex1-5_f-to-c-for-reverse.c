@@ -1,6 +1,8 @@
+/* print Farenheit-Celsius table; float, for-loop version, in REVERSE!
+*/
+
 #include <stdio.h>
 
-/* print Farenheit-Celsius table; float, for-loop version, in REVERSE! */
 int main(void)
 {
     int fahr;

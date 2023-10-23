@@ -1,10 +1,12 @@
+/* print Farenheit-Celsius table; float, for-loop version with DEFINE STATEMENTS!
+*/
+
 #include <stdio.h>
 
 #define LOWER   0       // lower limit of table
 #define UPPER   300     // upper limit of table
 #define STEP    20      // Farenheit step size
 
-/* print Farenheit-Celsius table; float, for-loop version with DEFINE STATEMENTS! */
 int main(void)
 {
     int fahr;

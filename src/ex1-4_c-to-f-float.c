@@ -1,3 +1,7 @@
+/*  print Celsius-Fahrenheit table
+    for fahr = 0, 20, ..., 300; floating-point version
+*/
+
 #include <stdio.h>
 
 /* print Celsius-Farenheit table

@@ -1,6 +1,8 @@
+/*  print Farenheit-Celsius table; float, for-loop version 
+*/
+
 #include <stdio.h>
 
-/* print Farenheit-Celsius table; float, for-loop version */
 int main(void)
 {
     int fahr;

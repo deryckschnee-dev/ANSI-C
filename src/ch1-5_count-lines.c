@@ -1,6 +1,7 @@
-#include <stdio.h>
+/* count lines in input
+*/
 
-/* count lines in input */
+#include <stdio.h>
 
 int main (void)
 {

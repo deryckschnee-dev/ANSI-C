@@ -1,6 +1,8 @@
-#include <stdio.h>
+/*  Write a program that prints the value 
+    of the EOF character. 
+*/
 
-/* print the value of the EOF character. */
+#include <stdio.h>
 
 int main (void)
 {

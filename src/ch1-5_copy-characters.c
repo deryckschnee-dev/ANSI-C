@@ -1,6 +1,6 @@
-#include <stdio.h>
-
 /* copy input to output. edit */
+
+#include <stdio.h>
 
 int main (void)
 {

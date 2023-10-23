@@ -1,6 +1,7 @@
-#include <stdio.h>
+/* count characters in input; 1st version
+*/
 
-/* count characters in input; 1st version */
+#include <stdio.h>
 
 int main (void)
 {

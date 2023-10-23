@@ -1,6 +1,7 @@
-#include <stdio.h>
+/* count number of each digit [0-9], white space, others
+*/
 
-/* count number of each digit [0-9], white space, oth ers */
+#include <stdio.h>
 
 main()
 {

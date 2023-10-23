@@ -1,18 +1,19 @@
-#include <stdio.h>
+/*  print Fahrenheit-Celsius table
+    for fahr = 0, 20, ..., 300; floating-point version
+*/
 
-/* print Fahrenheit-Celsius table
-    for fahr = 0, 20, ..., 300; floating-point version */
+#include <stdio.h>
 
 int main(void)
 {
     float fahr, celsius;
     int lower, upper, step;
 
-    lower = 0;      // lower limit of temperature table
-    upper = 115;    // upper limit of temperature table
-    step = 5;      // step size
+    lower = 0;      /* lower limit of temperature table */
+    upper = 115;    /* upper limit of temperature table */
+    step = 5;       /* step size */
 
-    // print temperature table
+    /* print temperature table */
     printf("\n");
     printf("   F \t   C \n");
     printf("-----\t------\n");

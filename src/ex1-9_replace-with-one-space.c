@@ -1,6 +1,7 @@
-#include <stdio.h>
+/* copy input to output and replace multiple spaces with one space
+*/
 
-/* copy input to output and replace multiple spaces with one space */
+#include <stdio.h>
 
 int main(void)
 {
