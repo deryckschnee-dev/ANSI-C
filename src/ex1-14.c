@@ -2,7 +2,7 @@
    histogram showing # of character occurences. 
    
    Deryck Schnee
-   Completed on dd-MMM-yyyy
+   Completed on 23-Oct-2023
    */
 
 #include <stdio.h>
