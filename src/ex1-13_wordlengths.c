@@ -6,7 +6,23 @@
 */
 
 #include <stdio.h>
-#define ARRAY_SIZE 20
+
+#define TRUE 1
+#define FALSE 0
+#define ARRAY_SIZE 20   /* for words up to 19 characters long */
+
+int isCharacterAlpha(char checkedCharacter)
+{
+    if((checkedCharacter >= 65 && checkedCharacter <= 90)
+    || (checkedCharacter >= 97 && checkedCharacter <= 122))
+    {
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
+}
 
 int main()
 {
@@ -28,13 +44,12 @@ int main()
 
     character = getchar();
 
-    while (character != EOF)
+    while(character != EOF)
     {
         if (insideWord == 0)    /* was outside word on last character */
         {
             // words are composed of the characters [A-Z,a-z]
-            if ((character >= 65 && character <=90)
-                || (character >= 97 && character <= 122))
+            if(isCharacterAlpha(character) == TRUE)
             {
                 insideWord = 1;
                 currentWordLength++;
@@ -46,8 +61,7 @@ int main()
         }
         else    /* was inside word on last character */
         {
-            if ((character >= 65 && character <=90)
-                || (character >= 97 && character <= 122))
+            if(isCharacterAlpha(character) == TRUE)
             {
                 insideWord = 1;
                 currentWordLength++;
@@ -55,7 +69,7 @@ int main()
             else
             {
                 insideWord = 0;
-                if (currentWordLength > (ARRAY_SIZE - 1))
+                if(currentWordLength > (ARRAY_SIZE - 1))
                 {
                     // EXCEPTION: Array size exceeded. Discard word length result.
                     exceptionWordTooLarge = 1;
@@ -68,33 +82,36 @@ int main()
                 }
             }
         }
+        
         character = getchar();
     }
+    
     printf("\n-=- Word Histograph -=-\n\n");
     printf("Char\n");
     printf("Count   Occurences\n");
     printf("======= ===============\n");
     
-    for (arrayIndex = 1; arrayIndex < ARRAY_SIZE; ++arrayIndex)
+    for(arrayIndex = 1; arrayIndex < ARRAY_SIZE; ++arrayIndex)
     {
         // printf("# of %d-letter words: %d\n", arrayIndex, wordLengthCount[arrayIndex]);
                 
         printf("    %2d: ", arrayIndex);     // Print left-hand legend
 
-        for (barIndex = 0; barIndex < wordLengthCount[arrayIndex]; ++barIndex)
+        for(barIndex = 0; barIndex < wordLengthCount[arrayIndex]; ++barIndex)
         {
             printf("#");    // Print bar
         }
         
-        if (wordLengthCount[arrayIndex] != 0)
+        if(wordLengthCount[arrayIndex] != 0)
         {
             printf(" (%d)", wordLengthCount[arrayIndex]);     // Print bar ending detail
         }
         printf("\n");
     }
+
     printf("\n");
 
-    if (exceptionWordTooLarge == 1)
+    if(exceptionWordTooLarge == 1)
     {
         printf("NOTE: Counts of words larger than %d characters were discarded.\n\n", (ARRAY_SIZE - 1));
     }

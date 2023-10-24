@@ -9,7 +9,7 @@
 
 #define TRUE 1
 #define FALSE 0
-#define ARRAY_SIZE 26
+#define ARRAY_SIZE 26   /* for 26-letter Alphabet */
 
 int isCharacterAlpha(char checkedCharacter)
 {
