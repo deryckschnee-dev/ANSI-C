@@ -5,8 +5,4 @@ _I claim no rights whatsoever concerning this publication. It's a great book. Go
 
 I am using the ANSI-C (C89) standard with Clang compiler version 12.0.0 on Windows 10 64-bit.
 
-```cmd
-clang.exe -std=c89 -g sourcefile.c -o ${workspaceFolder}\bin\run.exe
-```
-
 -ds
