@@ -1,16 +1,15 @@
 {
     "configurations": [
-    {
-        "name": "(Windows) Launch",
-        "type": "cppvsdbg",
-        "request": "launch",
-        "program": "${workspaceRoot}/bin/${fileBasenameNoExtension}.exe",
-        "args": [],
-        "stopAtEntry": false,
-        "cwd": "${workspaceRoot}/bin",
-        "environment": [],
-        "console": "externalTerminal",
-        "preLaunchTask": "C/C++: clang.exe build active file"
-    }
+        {
+            "name": "Windows - Debug",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}\\bin\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}\\bin",
+            "environment": [],
+            "console": "externalTerminal",
+        },
     ]
 }

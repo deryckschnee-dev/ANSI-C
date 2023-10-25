@@ -2,13 +2,15 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"type": "cppbuild",
-			"label": "C/C++: clang.exe build active file",
+			"type": "shell",
+			"label": "Clang - Build (Link)",
 			"command": "S:\\development\\compilers\\LLVM\\bin\\clang.exe",
 			"args": [
+				"-I${workspaceFolder}\\src\\includes",
 				"-std=c89",
 				"-g",
 				"${file}",
+				"${workspaceFolder}\\src\\includes\\DS\\*.c",
 				"-o",
 				"${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe"
 			],
@@ -18,8 +20,39 @@
 			"problemMatcher": [
 				"$gcc"
 			],
-			"group": "build",
-			"detail": "compiler: S:\\development\\compilers\\LLVM\\bin\\clang.exe"
+			"detail": "Build a Windows .exe executable file."
+		},
+		{
+			"type": "shell",
+			"label": "Clang - Compile",
+			"command": "S:\\development\\compilers\\LLVM\\bin\\clang.exe",
+			"args": [
+				"-I${workspaceFolder}\\src\\includes",
+				"-std=c89",
+				"-g",
+				"${file}",
+				"${workspaceFolder}\\src\\includes\\DS\\*.c",
+				"-o",
+				"${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}\\bin"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Compile object files only."
+		},
+		{
+			"type": "shell",
+			"label": "Clang - Clean build directory",
+			"command": "${workspaceRoot}\\bin\\task_clean.bat",
+			"args": [],
+			"options": {
+				"cwd": "${workspaceRoot}\\bin"
+			},
+			"detail": "Removes all temporary build files in \\bin directory.",
+			"problemMatcher": [],
 		}
 	]
 }
