@@ -3,74 +3,21 @@
 	"tasks": [
 		{
 			"type": "shell",
-			"label": "Clang - Assemble from sourcefile(s)",
-			"command": "S:\\development\\compilers\\LLVM\\bin\\clang.exe",
-			"args": [
-				"-S",
-				"-I${workspaceFolder}\\src\\includes",
-				"-std=c89",
-				"-g",
-				"${file}",
-				"${workspaceFolder}\\src\\includes\\DS\\*.c",
-			],
-			"options": {
-				"cwd": "${workspaceFolder}\\bin"
-			},
-			"problemMatcher": [
-				"$gcc"
-			],
-			"detail": "Compile to assembler files only."
-		},
-		{
-			"type": "shell",
-			"label": "Clang - Compile from sourcefiles(s)",
-			"command": "S:\\development\\compilers\\LLVM\\bin\\clang.exe",
-			"args": [
-				"-c",
-				"-I${workspaceFolder}\\src\\includes",
-				"-std=c89",
-				"-g",
-				"${file}",
-				"${workspaceFolder}\\src\\includes\\DS\\*.c",
-			],
-			"options": {
-				"cwd": "${workspaceFolder}\\bin"
-			},
-			"problemMatcher": [
-				"$gcc"
-			],
-			"detail": "Compile to object files only."
-		},
-		{
-			"type": "shell",
-			"label": "Clang - Link from sourcefile(s)",
-			"command": "S:\\development\\compilers\\LLVM\\bin\\clang.exe",
-			"args": [
-				"-I${workspaceFolder}\\src\\includes",
-				"-std=c89",
-				"-g",
-				"${file}",
-				"-o",
-				"${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe"
-			],
-			"options": {
-				"cwd": "${workspaceFolder}\\bin"
-			},
-			"problemMatcher": [
-				"$gcc"
-			],
-			"detail": "Build a Windows .exe executable file."
-		},
-		{
-			"type": "shell",
-			"label": "Clang - Clean build directory",
-			"command": "${workspaceRoot}\\bin\\task_clean.bat",
-			"args": [],
+			"label": "Clang - build_exe.bat",
+			"command": "${workspaceRoot}\\bin\\build_exe.bat ${fileBasenameNoExtension}",
 			"options": {
 				"cwd": "${workspaceRoot}\\bin"
 			},
-			"detail": "Removes all temporary build files in \\bin directory.",
-			"problemMatcher": [],
+			"detail": "Build active sourcefile and generate executable.",
+		},		
+		{
+			"type": "shell",
+			"label": "Clang - clean.bat",
+			"command": "${workspaceRoot}\\bin\\clean.bat",
+			"options": {
+				"cwd": "${workspaceRoot}\\bin"
+			},
+			"detail": "Removes all temporary build files in \\bin directory."
 		},
 	]
 }

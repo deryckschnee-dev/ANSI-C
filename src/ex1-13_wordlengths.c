@@ -39,7 +39,8 @@ int main()
         wordLengthCount[arrayIndex] = 0;
     }
 
-    printf("Type in a list of words separated by spaces. Enter ^Z on a blank line to end program.\n");
+    printf("Type in a list of words separated by spaces. Enter ^Z on a blank ");
+    printf("line to end program.\n");
     printf("> ");
 
     character = getchar();
@@ -70,14 +71,13 @@ int main()
             {
                 insideWord = 0;
                 if(currentWordLength > (ARRAY_SIZE - 1))
-                {
-                    // EXCEPTION: Array size exceeded. Discard word length result.
+                {   /* Array size exceeded. Discard word length result */
                     exceptionWordTooLarge = 1;
                     currentWordLength = 0;
                 }
                 else
-                {
-                    wordLengthCount[currentWordLength]++;   /* record word length */
+                {   /* record word length */
+                    wordLengthCount[currentWordLength]++;
                     currentWordLength = 0;
                 }
             }
@@ -92,19 +92,20 @@ int main()
     printf("======= ===============\n");
     
     for(arrayIndex = 1; arrayIndex < ARRAY_SIZE; ++arrayIndex)
-    {
-        // printf("# of %d-letter words: %d\n", arrayIndex, wordLengthCount[arrayIndex]);
-                
-        printf("    %2d: ", arrayIndex);     // Print left-hand legend
+    {   
+        /* Print left-hand legend */
+        printf("    %2d: ", arrayIndex);
 
+        /* Print bar */
         for(barIndex = 0; barIndex < wordLengthCount[arrayIndex]; ++barIndex)
         {
-            printf("#");    // Print bar
+            printf("#");
         }
         
+        /* Print bar ending detail */
         if(wordLengthCount[arrayIndex] != 0)
         {
-            printf(" (%d)", wordLengthCount[arrayIndex]);     // Print bar ending detail
+            printf(" (%d)", wordLengthCount[arrayIndex]);
         }
         printf("\n");
     }

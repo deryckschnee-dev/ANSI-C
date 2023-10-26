@@ -6,8 +6,7 @@
 */
 
 #include <stdio.h>
-
-int convertTempToC(int);  /* function prototype */
+#include <DS\tutorial.h>
 
 int main(void)
 {
@@ -23,18 +22,10 @@ int main(void)
     tempInF = lowerLimit;
     while (tempInF <= upperLimit)
     {
-        tempInC = convertTempToC(tempInF);
+        tempInC = ds_ConvertTempToC(tempInF);
         printf("%5d\t%5d\n", tempInF, tempInC);
         tempInF = tempInF + stepSize;
     }
 
     return 0;
-}
-
-int convertTempToC(int tempInF)     /* function definition */
-{
-    int result;
-    
-    result = 5 * (tempInF-32) / 9;
-    return result;
 }
