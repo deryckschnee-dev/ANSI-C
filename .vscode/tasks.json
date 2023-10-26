@@ -3,14 +3,53 @@
 	"tasks": [
 		{
 			"type": "shell",
-			"label": "Clang - Build (Link)",
+			"label": "Clang - Assemble from sourcefile(s)",
+			"command": "S:\\development\\compilers\\LLVM\\bin\\clang.exe",
+			"args": [
+				"-S",
+				"-I${workspaceFolder}\\src\\includes",
+				"-std=c89",
+				"-g",
+				"${file}",
+				"${workspaceFolder}\\src\\includes\\DS\\*.c",
+			],
+			"options": {
+				"cwd": "${workspaceFolder}\\bin"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Compile to assembler files only."
+		},
+		{
+			"type": "shell",
+			"label": "Clang - Compile from sourcefiles(s)",
+			"command": "S:\\development\\compilers\\LLVM\\bin\\clang.exe",
+			"args": [
+				"-c",
+				"-I${workspaceFolder}\\src\\includes",
+				"-std=c89",
+				"-g",
+				"${file}",
+				"${workspaceFolder}\\src\\includes\\DS\\*.c",
+			],
+			"options": {
+				"cwd": "${workspaceFolder}\\bin"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Compile to object files only."
+		},
+		{
+			"type": "shell",
+			"label": "Clang - Link from sourcefile(s)",
 			"command": "S:\\development\\compilers\\LLVM\\bin\\clang.exe",
 			"args": [
 				"-I${workspaceFolder}\\src\\includes",
 				"-std=c89",
 				"-g",
 				"${file}",
-				"${workspaceFolder}\\src\\includes\\DS\\*.c",
 				"-o",
 				"${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe"
 			],
@@ -24,27 +63,6 @@
 		},
 		{
 			"type": "shell",
-			"label": "Clang - Compile",
-			"command": "S:\\development\\compilers\\LLVM\\bin\\clang.exe",
-			"args": [
-				"-I${workspaceFolder}\\src\\includes",
-				"-std=c89",
-				"-g",
-				"${file}",
-				"${workspaceFolder}\\src\\includes\\DS\\*.c",
-				"-o",
-				"${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe"
-			],
-			"options": {
-				"cwd": "${workspaceFolder}\\bin"
-			},
-			"problemMatcher": [
-				"$gcc"
-			],
-			"detail": "Compile object files only."
-		},
-		{
-			"type": "shell",
 			"label": "Clang - Clean build directory",
 			"command": "${workspaceRoot}\\bin\\task_clean.bat",
 			"args": [],
@@ -53,6 +71,6 @@
 			},
 			"detail": "Removes all temporary build files in \\bin directory.",
 			"problemMatcher": [],
-		}
+		},
 	]
 }
