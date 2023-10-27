@@ -17,28 +17,46 @@
 
 #define MIN_LINE_LENGTH 80
 #define MAX_LINE_LENGTH 1000
-
-int characterIndex;
-int lineLength;
-
-char character;
-char workingArray[1000];
-char combinedArray[100000];
+#define MAX_COMBINED_SIZE 100000
 
 int main()
 {
-    characterIndex = 0;
-    
+    int currentLineLength;
+    int combinedLinesIndex;
 
-    character = getchar();         /* get initial character */
-    lineLength = 0; /* TODO: GetLine function */
-    while(/* TODO: GetLine > 0 */)
+    char character;
+    char currentLineArray[MAX_LINE_LENGTH];
+    char combinedLinesArray[MAX_COMBINED_SIZE];
+
+    currentLineLength = ds_GetLine(currentLineArray, MAX_LINE_LENGTH);
+    combinedLinesIndex = 0;
+
+    while(currentLineLength > 0)
     {
-        
-        
-        character = getchar();     /* get next character */
-        characterIndex++;
+        if (currentLineLength > MIN_LINE_LENGTH)
+        {
+            /* copy to combined array */
+            ds_AppendLine(combinedLinesArray, currentLineArray, combinedLinesIndex, 
+                MAX_COMBINED_SIZE);
+
+            combinedLinesIndex = combinedLinesIndex + currentLineLength;
+        }
+
+        currentLineLength = ds_GetLine(currentLineArray, MAX_LINE_LENGTH);
     }
+
+    /* Output appended lines to screen */
+    printf("\nLines over %d characters in length:\n\n", MIN_LINE_LENGTH);
+    combinedLinesIndex = 0;
+    character = combinedLinesArray[combinedLinesIndex];
+    while(character != '\0')
+    {
+        putchar(character);
+
+        ++combinedLinesIndex;
+        character = combinedLinesArray[combinedLinesIndex];
+    }
+    printf("\n");
 
     return 0;
 }

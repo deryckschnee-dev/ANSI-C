@@ -27,3 +27,6 @@
 
 /* ds_CopyLine: copy source array to destination array.
 */  void ds_CopyLine(char *destination, char *source);
+
+/* ds_AppendLine: append source array to destination array.
+*/  void ds_AppendLine(char *destination, char *source, int offsetIndex, int maxSize);

@@ -7,6 +7,7 @@
 
 
 #include <stdio.h>
+#include "tutorial.h"
 
 /* #####    FUNCTION DEFINITIONS                ##### 
 */
@@ -67,5 +68,18 @@ void ds_CopyLine(char *destination, char *source)
     {
         destination[arrayIndex] = source[arrayIndex];
         ++arrayIndex;
+    }
+}
+
+void ds_AppendLine(char *destination, char *source, int offsetIndex, int maxSize)
+{
+    int arrayIndex;
+
+    arrayIndex = 0;
+    while(source[arrayIndex] != '\0' && offsetIndex < maxSize)
+    {
+        destination[offsetIndex] = source[arrayIndex];
+        ++arrayIndex;
+        ++offsetIndex;
     }
 }
