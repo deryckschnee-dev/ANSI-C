@@ -2,7 +2,7 @@
     write a program that reverses its input one line at a time.
     
     Deryck Schnee
-    Completed on dd-Mmm-yyyy
+    Completed on 12-Dec-2023
     
 */
 
@@ -11,7 +11,8 @@
     - output characters from working array to console in reverse order.
     - repeat for remaining lines in input.
 
-    Will use my function ds_GetLine to read each line into working array.
+    Will create new function ds_ReverseLine to read each line into temp array, 
+    reverse the character order writing to working array.
 
 */
 
@@ -19,19 +20,25 @@
 #include <DS\tutorial.h>
 
 #define MAX_ARRAY_SIZE 10000
+#define MAX_LINE_LENGTH 200
+
 
 int main()
 {
     int lineLength = 0;
     int arrayPosition = 0;
     char workingArray[MAX_ARRAY_SIZE];
-    
-    lineLength = ds_GetLine(workingArray, MAX_ARRAY_SIZE);  /* Get inital line */
+
+    lineLength = ds_ReverseLine(workingArray, MAX_LINE_LENGTH);  /* Get inital line */
     while(lineLength > 0)
     {
+        for(arrayPosition = 0; workingArray[arrayPosition] != '\0'; ++arrayPosition)
+        {
+            putchar(workingArray[arrayPosition]);
+        }
 
-        lineLength = ds_GetLine(workingArray, MAX_ARRAY_SIZE); /* Get next line*/
+        lineLength = ds_ReverseLine(workingArray, MAX_LINE_LENGTH); /* Get next line*/
     }
-
+    
     return 0;
 }

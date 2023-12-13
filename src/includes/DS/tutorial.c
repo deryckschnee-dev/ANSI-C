@@ -83,3 +83,35 @@ void ds_AppendLine(char *destination, char *source, int offsetIndex, int maxSize
         ++offsetIndex;
     }
 }
+
+int ds_ReverseLine(char *lineArray, int lineMaxLength)
+{
+    int character;
+    int characterCount;
+    int tempCount;
+    char tempArray[lineMaxLength + 1];
+
+    character = getchar();  /* get first character of line */
+    for(characterCount = 0; characterCount <= lineMaxLength
+     && character != EOF && character != '\n'; ++characterCount)
+    {
+        tempArray[characterCount] = character;
+        character = getchar();  /* get next character of line */
+    }
+
+    tempCount = characterCount - 1; /* set number of characters to reverse */
+    characterCount = 0;
+
+    while(tempCount >= 0)
+    {
+        lineArray[tempCount] = tempArray[characterCount];
+        --tempCount;
+        ++characterCount;
+    }
+    lineArray[characterCount] = '\n';   /* add newline character to line */
+    ++characterCount;
+    lineArray[characterCount] = '\0';   /* add NULL termination character to line */
+    --characterCount;
+    
+    return characterCount;
+}

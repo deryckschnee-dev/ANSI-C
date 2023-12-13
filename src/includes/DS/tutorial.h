@@ -32,3 +32,8 @@
     NOTE: append offset is not determined within this function 
     and must be provided. */  
     void ds_AppendLine(char *destination, char *source, int offsetIndex, int maxSize);
+
+/* ds_ReverseLine: read a line from specified array,
+    return array with character order reversed,
+    add NULL '\0' termination character*/
+    int ds_ReverseLine(char *lineArray, int maxLine);

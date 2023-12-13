@@ -19,14 +19,5 @@
 			},
 			"detail": "Removes all temporary build files in \\bin directory."
 		},
-		{
-			"type": "shell",
-			"label": "NMake - Build Current (VS Dev Env Only)",
-			"command": "nmake all",
-			"options": {
-				"cwd": "${workspaceRoot}\\bin"
-			},
-			"detail": "Build active sourcefile and generate executable."
-		},
 	]
 }
