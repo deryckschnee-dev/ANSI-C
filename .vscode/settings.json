@@ -1,7 +1,4 @@
 {
-    "files.associations": {
-        "stdio.h": "c"
-    },
     "editor.rulers": [81],    
     "workbench.colorCustomizations": {
         "editorRuler.foreground": "#ff000061"
