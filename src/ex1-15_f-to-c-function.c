@@ -6,7 +6,7 @@
 */
 
 #include <stdio.h>
-#include <DS\tutorial.h>
+#include "tutorial.h"
 
 int main(void)
 {

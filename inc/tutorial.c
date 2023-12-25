@@ -7,7 +7,7 @@
 
 
 #include <stdio.h>
-#include "tutorial.h"
+#include "../inc/tutorial.h"
 
 /* #####    FUNCTION DEFINITIONS                ##### 
 */

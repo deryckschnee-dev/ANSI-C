@@ -14,7 +14,7 @@
 */
 
 #include <stdio.h>
-#include <DS\tutorial.h>
+#include "tutorial.h"
 
 #define MAXLINE 1000
 #define CONSOLE_WIDTH 120

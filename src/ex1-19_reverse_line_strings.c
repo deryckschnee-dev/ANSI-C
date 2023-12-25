@@ -17,7 +17,7 @@
 */
 
 #include <stdio.h>
-#include <DS\tutorial.h>
+#include "tutorial.h"
 
 #define MAX_ARRAY_SIZE 10000
 #define MAX_LINE_LENGTH 200

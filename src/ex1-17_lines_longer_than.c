@@ -13,7 +13,7 @@
 */
 
 #include <stdio.h>
-#include <DS\tutorial.h>
+#include "tutorial.h"
 
 #define MIN_LINE_LENGTH 80
 #define MAX_LINE_LENGTH 1000
