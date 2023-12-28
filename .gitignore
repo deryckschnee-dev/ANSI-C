@@ -1,5 +1,2 @@
-bin/*.exe
-bin/*.ilk
-bin/*.pdb
-bin/*.o
-bin/makefile
+bin/*
+bin/*.*

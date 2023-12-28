@@ -25,10 +25,10 @@
 int main()
 {
     int lineLength;
-    int i;
-    int j;
+    int i;  // working array index
+    int j;  // output array index
     int spaces;
-    int column;
+    int column; // current line column position
 
     char character;
     char workingArray[MAX_LINE_LENGTH];
