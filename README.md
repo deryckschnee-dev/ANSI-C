@@ -4,6 +4,6 @@ This repository is my own learning and working through the material and exercise
 
 _I claim no rights whatsoever concerning my use of this publication. It's a great book. Go buy a copy!_
 
-I am using the ANSI-C (C89) standard with Clang compiler version 17.0.2 on Windows 10 64-bit.
+I am using the Clang compiler version 14.0.0 on Ubuntu 22.04 LTS
 
 -ds
