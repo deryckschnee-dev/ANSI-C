@@ -16,7 +16,7 @@
 
 #define SCREEN_COLUMNS 80
 #define TAB_STOP 8
-#define MAX_LINE_LENGTH 1000
+#define MAX_LINE_LENGTH 100000
 #define IS_TRUE 1
 #define IS_FALSE 0
 
