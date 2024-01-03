@@ -115,3 +115,20 @@ int ds_ReverseLine(char *lineArray, int lineMaxLength)
     
     return characterCount;
 }
+
+int ds_GetStream (char *streamArray, int maxStream)  /* Requires: stdio.h */
+{
+    int character;
+    int characterCount;
+
+    character = getchar();  /* get first character of stream */
+    for(characterCount = 0; characterCount < maxStream - 1
+        && character != EOF; ++characterCount)
+    {
+        streamArray[characterCount] = character;
+        character = getchar();  /* get next character of stream */
+    }
+
+    streamArray[characterCount] = '\0';   /* add NULL termination character to line */
+    return characterCount;
+}

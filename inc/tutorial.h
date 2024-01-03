@@ -37,3 +37,8 @@
     return array with character order reversed,
     add NULL '\0' termination character*/
     int ds_ReverseLine(char *lineArray, int maxLine);
+
+/* ds_GetStream: read a stream of characters into specified array,
+    add NULL '\0' termination character,
+    return length of array. */
+    int ds_GetStream(char *streamArray, int maxStream);
