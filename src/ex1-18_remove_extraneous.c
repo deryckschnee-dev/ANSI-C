@@ -38,6 +38,7 @@ int main()
     int workingArrayIndex = 0;
 
     char currentCharacter;
+    // test comment
     char previousCharacter = '\0';
     char workingArray[MAX_ARRAY_SIZE];
 

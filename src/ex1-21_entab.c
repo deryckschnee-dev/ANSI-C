@@ -31,6 +31,7 @@ int main()
     char lineOut[MAX_LINE_LENGTH];
 
     char character;
+    // test comment
 
     int lineInLength;
     int indexLineIn;
