@@ -30,11 +30,11 @@ int main() {
     int inCommentSingl = IS_FALSE;
 
     while ((inputStreamLen = ds_GetLine(inputStream, MAX_STREAM)) > 0) {
-    /*    for (inputStreamIdx = 0; (character = inputStream[inputStreamIdx]) != '\0'; ++inputStreamIdx) {
+        for (inputStreamIdx = 0; (character = inputStream[inputStreamIdx]) != '\0'; ++inputStreamIdx) {
 
-            printf("%c", character);
+            printf("%c", character);	// Test line to print all characters as read from line.
 
-        } */
+        }
     }
 
     return 0;
