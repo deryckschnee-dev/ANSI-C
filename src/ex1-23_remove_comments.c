@@ -1,7 +1,7 @@
 /* Exercise 1-23
     Write a program to remove comments from a C program. 
     
-    Completed on DD-Mmm-YYYY 
+    Completed on 14-Jan-2024 
     Deryck S Schnee
     
 */
