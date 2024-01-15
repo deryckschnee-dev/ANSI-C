@@ -12,11 +12,10 @@
 #define MAX_STREAM 100000
 #define IS_FALSE 0
 #define IS_TRUE 1
+
 int main(int argc, char *argv[]) {
     int inQSA = IS_FALSE; // inside '  only one level deep
     int inQSQ = IS_FALSE; // inside "  only one level deep
-    int inQSP = IS_FALSE; // inside ()
-    int inQSB = IS_FALSE; // inside {}
 
     char inputStream[MAX_STREAM];
     int inputStreamIdx = 0;
@@ -25,19 +24,14 @@ int main(int argc, char *argv[]) {
     char workingArray[MAX_STREAM];
     int workingArrayIdx = 0;
 
-    int combinedIdx = 0;
-    
     char character;
     
-    int inCM = IS_FALSE; // in multi-line comment.
-    int inCS = IS_FALSE; // in single-line comment.
-
     FILE *fp;
     void filecopy(FILE *, char *);
     
     // This part copies contents of the file into workingArray.
     if (argc == 1) {
-	printf("No filename specified! Ex: ex1-23 filename.c\n\n");
+	printf("No filename specified! Usage: ex1-23 filename.c\n\n");
     }
     else {
 	while (--argc > 0) {
@@ -67,6 +61,7 @@ int main(int argc, char *argv[]) {
 			// Do nothing with comment characters. Look for end.
 			++workingArrayIdx;
 		    }
+		    printf("\n");
 		} else if ((character = workingArray[workingArrayIdx]) \
 		!= '\0' && character == '*') {
 		    // In multi-line comment.
@@ -77,7 +72,9 @@ int main(int argc, char *argv[]) {
 			    ++workingArrayIdx;
 			    if ((character = workingArray[workingArrayIdx]) \
 			    != '\0') {
-				if (character == '/') { break; }
+				if (character == '/') {
+				    break;
+				}
 				// else continue while loop.
 			    }
 			}
@@ -93,12 +90,37 @@ int main(int argc, char *argv[]) {
 		    printf("%c", character);
 		}
 	    } else {
+		if (character == '\'') {
+		    inQSA = IS_TRUE;
+		}
+		if (character == '\"') {
+		    inQSQ = IS_TRUE;
+		}
 		printf("%c", character);
 	    }
 	} else {
 	    // check for ' or " and set state.
-	}
+	    if (inQSA == IS_TRUE) {
+		if (character == '\'') {
+		    inQSA = IS_FALSE;
+		}
+	    } else {
+		if (character == '\'') {
+		    inQSA = IS_TRUE;
+		}
+	    }
+	    if (inQSQ == IS_TRUE) {
+		if (character == '\"') {
+		    inQSQ = IS_FALSE;
+		}
+	    } else {
+		if (character == '\"') {
+		    inQSQ = IS_TRUE;
+		}
+	    }
 
+	    printf("%c", character);
+	}
 	++workingArrayIdx;
     }
 
