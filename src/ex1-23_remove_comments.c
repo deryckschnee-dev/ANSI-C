@@ -12,12 +12,11 @@
 #define MAX_STREAM 100000
 #define IS_FALSE 0
 #define IS_TRUE 1
-
 int main(int argc, char *argv[]) {
-    int inQSA = 0; // inside '  only one level deep
-    int inQSQ = 0; // inside "  only one level deep
-    int inQSP = 0; // inside ()
-    int inQSB = 0; // inside {}
+    int inQSA = IS_FALSE; // inside '  only one level deep
+    int inQSQ = IS_FALSE; // inside "  only one level deep
+    int inQSP = IS_FALSE; // inside ()
+    int inQSB = IS_FALSE; // inside {}
 
     char inputStream[MAX_STREAM];
     int inputStreamIdx = 0;
@@ -36,6 +35,7 @@ int main(int argc, char *argv[]) {
     FILE *fp;
     void filecopy(FILE *, char *);
     
+    // This part copies contents of the file into workingArray.
     if (argc == 1) {
 	printf("No filename specified! Ex: ex1-23 filename.c\n\n");
     }
@@ -51,10 +51,54 @@ int main(int argc, char *argv[]) {
 	}
     }
 
+    // This part evaluates workingArray and outputs to the console.
     workingArrayIdx = 0;
-    // Begin evaluation of workingArray here.
     while ((character = workingArray[workingArrayIdx]) != '\0') {
-	printf("%c", character);
+	// printf("%c", character);
+	if (inQSA == IS_FALSE && inQSQ == IS_FALSE) {
+	    if (character == '/') {
+		++workingArrayIdx;
+		if ((character = workingArray[workingArrayIdx]) != '\0' \
+		&& character == '/') {
+		    // In single-line comment.
+		    ++workingArrayIdx;
+		    while ((character = workingArray[workingArrayIdx]) \
+		    != '\n' && character != '\0') {
+			// Do nothing with comment characters. Look for end.
+			++workingArrayIdx;
+		    }
+		} else if ((character = workingArray[workingArrayIdx]) \
+		!= '\0' && character == '*') {
+		    // In multi-line comment.
+		    while ((character = workingArray[workingArrayIdx]) \
+		    != '\0') {
+			// Do nothing with comment characters. Look for end.
+			if (character == '*') {
+			    ++workingArrayIdx;
+			    if ((character = workingArray[workingArrayIdx]) \
+			    != '\0') {
+				if (character == '/') { break; }
+				// else continue while loop.
+			    }
+			}
+			++workingArrayIdx;
+		    }
+		} else {
+		    // Not in a comment.
+		    --workingArrayIdx;
+		    character = workingArray[workingArrayIdx];
+		    printf("%c", character);
+		    ++workingArrayIdx;
+		    character = workingArray[workingArrayIdx];
+		    printf("%c", character);
+		}
+	    } else {
+		printf("%c", character);
+	    }
+	} else {
+	    // check for ' or " and set state.
+	}
+
 	++workingArrayIdx;
     }
 
