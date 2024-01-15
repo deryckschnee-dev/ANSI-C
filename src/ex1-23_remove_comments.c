@@ -14,10 +14,10 @@
 #define IS_TRUE 1
 
 int main(int argc, char *argv[]) {
-    int inQSApostLvl = 0;
-    int inQSQuoteLvl = 0;
-    int inQSParenLvl = 0;
-    int inQSBrackLvl = 0;
+    int inQSA = 0; // inside '  only one level deep
+    int inQSQ = 0; // inside "  only one level deep
+    int inQSP = 0; // inside ()
+    int inQSB = 0; // inside {}
 
     char inputStream[MAX_STREAM];
     int inputStreamIdx = 0;
@@ -30,19 +30,9 @@ int main(int argc, char *argv[]) {
     
     char character;
     
-    int inCommentMulti = IS_FALSE;
-    int inCommentSingl = IS_FALSE;
+    int inCM = IS_FALSE; // in multi-line comment.
+    int inCS = IS_FALSE; // in single-line comment.
 
-/*    while ((inputStreamLen = ds_GetLine(inputStream, MAX_STREAM)) > 0) {
-        for (inputStreamIdx = 0; (character = inputStream[inputStreamIdx]) \
-	!= '\0'; ++inputStreamIdx) {
-	    combinedIdx = inputStreamIdx + workingArrayIdx;
-	    workingArray[combinedIdx] = character;
-	    ++workingArrayIdx;
-        }
-    }
-    workingArray[workingArrayIdx] = '\0';
-*/
     FILE *fp;
     void filecopy(FILE *, char *);
     
@@ -74,7 +64,7 @@ int main(int argc, char *argv[]) {
 /* filecopy: copy file ifp to char ofp */
 void filecopy(FILE *ifp, char *ofp) {
     int c;
-    int i = 0;	// modified this function from the book to copy from
+    int i = 0;	// modified this function from the book version to copy from
 		// a file to a character array, instead of from file to file.
 
     while ((c = getc(ifp)) != EOF) {
